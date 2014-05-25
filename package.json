@@ -14,6 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.3.1",
-    "redis": "^0.10.3"
+    "redis": "^0.10.3",
+    "server-event-fork": "^1.1.0"
   }
 }
