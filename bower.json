@@ -1,0 +1,21 @@
+{
+  "name": "MauveChat",
+  "version": "0.0.0",
+  "authors": [
+    "RangerMauve <RangerMauve@hotmail.com>"
+  ],
+  "description": "A simple chat app using Redis",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "rivets": "~0.6.8"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "MauveChat",
+  "version": "0.0.0",
+  "description": "A simple chat app using Redis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chat",
+    "redis"
+  ],
+  "author": "RangerMauve",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.3.1",
+    "redis": "^0.10.3"
+  }
+}
