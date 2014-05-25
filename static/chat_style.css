@@ -1,0 +1,132 @@
+* {
+	margin:0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body,html {
+	height: 100%;
+}
+
+body {
+	background: #9b59b6;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	font-family: Helvetica;
+	font-size: 0.8em;
+}
+
+main {
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+	-webkit-box-flex: 4;
+	-webkit-flex: 4;
+	-ms-flex: 4;
+	flex: 4;
+}
+
+footer {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+footer textarea {
+	-webkit-box-flex:1;
+	-webkit-flex:1;
+	-ms-flex:1;
+	flex:1;
+}
+
+footer .controls {
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+}
+
+aside {
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	width:200px;
+}
+
+aside > * {
+	-webkit-box-flex:1;
+	-webkit-flex:1;
+	-ms-flex:1;
+	flex:1;
+}
+
+article {
+	-webkit-box-flex:1;
+	-webkit-flex:1;
+	-ms-flex:1;
+	flex:1;
+}
+
+header {
+	padding: 5px;
+	color:white;
+}
+
+.container {
+	background: white !important;
+	border-radius: 8px;
+	padding:5px;
+	margin: 5px;
+}
+
+.container.simple {
+	padding: 1px;
+	background: inherit !important;
+	color:white;
+	border: none;
+	margin: 0px 5px;
+}
+
+button,select {
+	-webkit-transition: all 400ms;
+	transition: all 400ms;
+	background-color: #ecf0f1;
+	border: 1px solid #bdc3c7;
+	border-radius: 2px;
+	padding: 2px;
+	font-size: 0.8em;
+}
+
+button:hover, select:hover {
+	background: #e5e5e5;
+}
+
+button:active {
+	background: #bdc3c7;
+}
+
+button.submit {
+	margin: 5px;
+}

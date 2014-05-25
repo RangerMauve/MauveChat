@@ -2,7 +2,32 @@
 <title>MauveChat</title>
 <link rel="stylesheet" href="chat_style.css">
 
-<h1>Hello Woyld.</h1>
+<main>
+	<article class="container">
+		<div rv-each-message="chat.messages" class="message">
+			<div class="from" rv-text="message.room"></div>
+			<div class="text" rv-text="message.text"></div>
+		</div>
+	</article>
+	<aside>
+		<div rv-each-room="chat.rooms" class="container">
+			<div class="user" rv-each-user="room.users" rv-text="user.text"></div>
+		</div>
+	</aside>
+</main>
+<footer>
+	<div class="room_select container simple">
+		Room:
+		<select rv-value="chat.current_room">
+			<option rv-each-room="chat.rooms" rv-value="room.name">{room.name}</option>
+		</select>
+		<button rv-click="chat.join_new">Join New</button>
+	</div>
+	<div class="controls">
+		<textarea rv-value="chat.current_text" class="container"></textarea>
+		<button rv-click="chat.post_to_current" class="submit">Submit</button>
+	</div>
+</footer>
 
 <script src="/lib/rivets/dist/rivets.min.js"></script>
 <script src="chat_scripts.js"></script>
