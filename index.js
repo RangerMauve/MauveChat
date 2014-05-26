@@ -1,7 +1,10 @@
 var express = require("express");
+var app = express();
 var redis = require("redis");
 var path = require("path");
-var eventSource = require("server-event-fork")();
+var eventSource = require("server-event-fork")({
+	express: app
+});
 var events = new(require("events").EventEmitter)();
 
 // Remove cap on event listeners in EventEmitter
@@ -9,8 +12,6 @@ events.setMaxListeners(0);
 
 var pub = redis.createClient();
 var sub = redis.createClient();
-
-var app = express();
 
 var bower_libs = express.static(path.join(__dirname, "/bower_components"));
 
