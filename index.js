@@ -15,6 +15,12 @@ var sub = redis.createClient();
 
 var bower_libs = express.static(path.join(__dirname, "/bower_components"));
 
+// Serve bower_components as if they were in /lib
+app.use("/lib", bower_libs);
+
+// Serve regular static files from the root
+app.use(express.static(path.join(__dirname, "/static")));
+
 app.get("/chat/room/:room", eventSource, function (req, res) {
 	var room = req.param("room");
 
@@ -37,12 +43,6 @@ app.post("/chat/room/:room/message", function (req, res, next) {
 	});
 });
 
-// Serve bower_components as if they were in /lib
-app.use("/lib", bower_libs);
-
-// Serve regular static files from the root
-app.use(express.static(path.join(__dirname, "/static")));
-
 function listen(name, fn) {
 	if (events.listeners(name) === 0) {
 		sub.subscribe(name);
@@ -59,6 +59,7 @@ function unlisten(name, fn) {
 
 sub.on("message", function (name, data) {
 	events.emit(name, data);
+	console.log("Message to", name, ":\t", data);
 });
 
 // Listen to the PORT environment var, or 80
