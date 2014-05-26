@@ -11,7 +11,8 @@
 	</article>
 	<aside>
 		<div rv-each-room="chat.rooms" class="container">
-			<div class="user" rv-each-user="room.users" rv-text="user.text"></div>
+			<h2>{room.name}:</h2>
+			<div class="user" rv-each-user="room.users" rv-text="user"></div>
 		</div>
 	</aside>
 </main>
@@ -21,11 +22,11 @@
 		<select rv-value="chat.current_room">
 			<option rv-each-room="chat.rooms" rv-value="room.name">{room.name}</option>
 		</select>
-		<button rv-click="chat.join_new">Join New</button>
+		<button rv-on-click="chat.join_new">Join New</button>
 	</div>
 	<div class="controls">
 		<textarea rv-value="chat.current_text" class="container"></textarea>
-		<button rv-click="chat.post_to_current" class="submit">Submit</button>
+		<button rv-on-click="chat.post_to_current" class="submit">Submit</button>
 	</div>
 </footer>
 
