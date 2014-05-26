@@ -5,6 +5,7 @@ var path = require("path");
 var eventSource = require("server-event-fork")({
 	express: app
 });
+var bodyParser = require("body-parser")();
 var events = new(require("events").EventEmitter)();
 
 // Remove cap on event listeners in EventEmitter
@@ -15,11 +16,7 @@ var sub = redis.createClient();
 
 var bower_libs = express.static(path.join(__dirname, "/bower_components"));
 
-// Serve bower_components as if they were in /lib
-app.use("/lib", bower_libs);
-
-// Serve regular static files from the root
-app.use(express.static(path.join(__dirname, "/static")));
+app.use(bodyParser);
 
 app.get("/chat/room/:room", eventSource, function (req, res) {
 	var room = req.param("room");
@@ -61,6 +58,12 @@ sub.on("message", function (name, data) {
 	events.emit(name, data);
 	console.log("Message to", name, ":\t", data);
 });
+
+// Serve bower_components as if they were in /lib
+app.use("/lib", bower_libs);
+
+// Serve regular static files from the root
+app.use(express.static(path.join(__dirname, "/static")));
 
 // Listen to the PORT environment var, or 80
 app.listen(process.env.PORT || 80);
